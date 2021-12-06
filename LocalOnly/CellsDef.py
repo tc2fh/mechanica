@@ -5,17 +5,25 @@ import pandas as pd
 
 mx.init()
 
+class VertexList(object):
+    Global = []
+    def __init__(self):
+        self.VertexList.append(self)
 
-'''
-notes:
-try not to fall into conditional hell, where every time we're trying to do things we fall into tons of conditionals
-    mitigate divergence in logic as much as possible
+class EdgeList(object):
+    Global = []
+    def __init__(self):
+        self.EdgeList.append(self)
 
-'''
+class SurfaceList(object):
+    Global = []
+    def __init__(self):
+        self.SurfaceList.append(self)
 
-
-
-
+class CellList(object):
+    Global = []
+    def __init__(self):
+        self.CellList.append(self)
 
 
 
@@ -25,21 +33,31 @@ class Vertex(mx.ParticleType):
     mass = 1
     style = {"color": "MediumSeaGreen"}
 
-    def __init__(self, x, y, z, Neighbors, EdgeList, SurfaceList):
+    def __init__(self, x, y, z,id):
         self.x = x
         self.y = y
         self.z = z
-        self.Neighbors = Neighbors
-        self.EdgeList = EdgeList
-        self.SurfaceList = SurfaceList
+        self.id = id
 
-    def update_neighbors(self, NeighborsList):
-        for a in NeighborsList:
-            self.Neighbors.append(a)
+    def find_edges(self):
+        #returns list of edge id's that this vertex is a part of
+        edgelist = [x for x in EdgeList.GLobal if self.id in x.find_vertices()]
+        #this works because EdgeList.Global is an array of edges, where every edge id can return a list of vertex id's
+        return edgelist
 
-    def delete_neighbor(self, Neighbor):
-        for a in Neighbor:
-            self.Neighbor.remove(a)
+    def find_surfaces(self):
+        #returns all surfaces that this vertex is a part of
+
+        #create list of verties
+        surfacelist = [x for x in SurfaceList.Global if ]
+
+    # def update_neighbors(self, NeighborsList):
+    #     for a in NeighborsList:
+    #         self.Neighbors.append(a)
+    #
+    # def delete_neighbor(self, Neighbor):
+    #     for a in Neighbor:
+    #         self.Neighbor.remove(a)
 
     def find_cells(self):
     def get_id
@@ -102,10 +120,10 @@ class edges:
         '''
         can this be a more global method?
 
-        EDGES
+        EDGESf the
         search through all edges, if the distance between vertex1 and vertex2 of any edge < threshold:
             1. delete id's of the edge in question and vertices in question
-            2. for edges that it shares, make the vertices the center of the prior edge, and that one vertex is now going to be in place of the other vertices
+            2. for edges that it shares, make the vertices the center oprior edge, and that one vertex is now going to be in place of the other vertices
             #THIS IS TO DELETE
 
         SURFACES

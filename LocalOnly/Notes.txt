@@ -1,0 +1,68 @@
+
+consider using python dictionaries instead of lists. faster and better
+consider using uuid instead of lists of IDs, much better?
+
+should "tissues" be the final layer?
+consider using cells/tissues as a data structure inclusive of lists of lower order structures
+
+
+
+
+
+
+
+
+
+
+
+class VertexList(object):
+    #list of all vertex id's in the simulation
+
+
+class EdgeList(object):
+    #list of all edge id's in the simulation
+
+
+class SurfaceList(object):
+    #list of all surface id's in the simulation
+
+
+class CellList(object):
+    #list of all cell id's in the simulation
+
+
+class Vertex(mx.ParticleType):
+
+    def find_edges(self):
+        # returns list of edge id's that this vertex is a part of
+
+    def neighbors(self):
+        #returns list of neighbor vertice id's
+
+    def find_surfaces(self):
+        # returns all surfaces that this vertex is a part of
+
+    def find_cells(self):
+        #returns list of cell id's that this vertex is a part of
+
+
+class edges:
+
+    def make_edge(self, pb=self.pb, vertex1, vertex2):
+        #create edge by passing in two unique vertex id's, assign a new edge id and return it
+
+
+    def find_vertices:
+        return [self.Vertex1, self.Vertex2]
+
+    def find_surfaces(self, edgeid):
+        # search through all surfaces for list item of [self.vertex1, self.vertex2], return the vertex IDs
+
+
+    def add_vertices(self, NewVertex, OldVertex):
+        #add edge by specifying new vertex id and old vertex to connect to?
+
+
+    # from nearest vertex (either self.vertex1 or self.vertex2), make a new edge between the new vertex and assign ID to it
+    def add_surfaces(self, NewEdge, OldEdge):
+        #make edge
